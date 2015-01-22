@@ -1,0 +1,42 @@
+Syntactic sugar causes cancer of the semicolon. —Alan Perlis
+comment code, write tutorial yay, package cabal, nix
+
+only do-style and (>=>)-style
+
+read R5RS for compliance: count functions implemented
+    http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-2.html
+
+types
+    purtify dynamic number Num, remove Num LispVal
+    organize
+
+eval
+    add env-primitives
+        cond, case, let, letrec
+    add continuations
+        eval cont env lisp = eval (lisp:cont) env lispNested
+
+    test and improve: eval, apply
+    should do a typeCheck in "apply"
+
+eval.primitives
+    vector, character, string ops
+    explicit number coercion
+        string/char prims, num comparisons
+    add doc to primitives (autodoc? infer best types?)
+
+    separate env, IO, and refTrans primitives
+        add safer/dangerous types ThrowsError, ThrowsErrorIO Env
+    rand primitive
+
+parser
+    quasiquote syntax (` , ,@)
+        examples : http://www.gigamonkeys.com/book/macros-defining-your-own.html
+
+add macros
+    gather macro forms -> find usage, replace with evaluation -> repeat until no more use is detected
+
+test
+    against lispy, simple c implementation, real implementation
+    tests run from Haskell
+        timeAndTestWithCommand :: [Test] -> command -> (Double, output, Bool)

@@ -1,0 +1,13 @@
+(list->string #\a #\b)
+(string->list "ohhhhnoes")
+(cdr (cdr '(2 4 . 4)))
+(car (cdr (cdr '(2 4 . 4))))
+(car (cdr (cdr '(2 4 4))))
+(cdr (cdr (cdr (cdr '(2 4 4)))))
+(car (cdr (cdr (cdr '(2 4 4)))))
+
+(symbol->string (string->symbol "manylong"))
+(string-ref "many long years ago" 4)
+(string-ref "many long years ago" -1)
+(string-ref "many long years ago" 100)
+(string-ref "many long years ago" 3.141516)
