@@ -18,7 +18,8 @@ makeGetCtor d c = [ TypeSig sl [name from] typ,
         typ = TyFun (dataDeclType d) $
            TyApp (TyCon (UnQual (Ident "Maybe")))
            -- fromBangType safe? likely strips strictness annotations
-           (tyTuple $ map (fromBangType . snd) $ ctorDeclFields c)
+           -- (tyTuple $ map (fromBangType . snd) $ ctorDeclFields c)
+           (tyTuple $ map snd $ ctorDeclFields c)
 
         match = Match sl (name from) [pat] Nothing (UnGuardedRhs rhs) (BDecls [])
         pat = (length vars == 0 ? id $ PParen) $ PApp (qname n) (map pVar vars)

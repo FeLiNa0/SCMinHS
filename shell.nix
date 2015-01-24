@@ -11,6 +11,7 @@ let
     parsec
     derive
     haskeline
+    vector
   ]));
 in
 haskellPackages.cabal.mkDerivation (self: {
